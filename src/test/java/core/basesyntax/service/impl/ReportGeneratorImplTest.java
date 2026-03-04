@@ -21,6 +21,13 @@ class ReportGeneratorImplTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void getReport_emptyStorage_Ok() {
+        String expected = "fruit,quantity" + System.lineSeparator();
+        String actual = reportGenerator.getReport();
+        assertEquals(expected, actual);
+    }
+
     @AfterEach
     void tearDown() {
         Storage.clear();

@@ -1,6 +1,7 @@
 package core.basesyntax.service.impl;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 import core.basesyntax.db.Storage;
 import core.basesyntax.model.FruitTransaction;
@@ -23,6 +24,13 @@ class ReturnOperationTest {
                 FruitTransaction.Operation.RETURN, "apple", 15);
         returnOperation.handle(transaction);
         assertEquals(45, Storage.getFruitQuantity("apple"));
+    }
+
+    @Test
+    void handel_negativeQuantity_notOk() {
+        FruitTransaction transaction = new FruitTransaction(
+                FruitTransaction.Operation.RETURN, "apple", -5);
+        assertThrows(RuntimeException.class, () -> returnOperation.handle(transaction));
     }
 
     @AfterEach
