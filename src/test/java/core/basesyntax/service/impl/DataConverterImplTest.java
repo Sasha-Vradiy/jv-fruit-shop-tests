@@ -7,10 +7,16 @@ import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.service.DataConverter;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class DataConverterImplTest {
-    private final DataConverter dataConverter = new DataConverterImpl();
+    private DataConverter dataConverter;
+
+    @BeforeEach
+    void setUp() {
+        dataConverter = new DataConverterImpl();
+    }
 
     @Test
     void convertToTransaction_validData_Ok() {

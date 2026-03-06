@@ -5,10 +5,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import core.basesyntax.db.Storage;
 import core.basesyntax.service.ReportGenerator;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ReportGeneratorImplTest {
-    private final ReportGenerator reportGenerator = new ReportGeneratorImpl();
+    private ReportGenerator reportGenerator;
+
+    @BeforeEach
+    void setUp() {
+        reportGenerator = new ReportGeneratorImpl();
+    }
 
     @Test
     void getReport_validData_Ok() {

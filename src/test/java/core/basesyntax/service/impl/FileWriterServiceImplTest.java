@@ -8,11 +8,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class FileWriterServiceImplTest {
     private static final String TEST_OUTPUT_FILE = "src/test/resources/test_report.csv";
-    private static final FileWriterService fileWriterService = new FileWriterServiceImpl();
+    private static FileWriterService fileWriterService;
+
+    @BeforeEach
+    void setUp() {
+        fileWriterService = new FileWriterServiceImpl();
+    }
 
     @Test
     void write_validData_Ok() throws IOException {

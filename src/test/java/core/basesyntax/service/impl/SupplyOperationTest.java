@@ -10,10 +10,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class SupplyOperationTest {
-    private final OperationHandler supplyOperation = new SupplyOperation();
+    private OperationHandler supplyOperation;
 
     @BeforeEach
     void setUp() {
+        supplyOperation = new SupplyOperation();
         Storage.putFruit("banana", 50);
     }
 

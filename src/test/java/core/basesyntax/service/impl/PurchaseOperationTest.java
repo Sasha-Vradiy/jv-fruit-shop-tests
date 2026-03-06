@@ -11,10 +11,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class PurchaseOperationTest {
-    private final OperationHandler purchaseOperation = new PurchaseOperation();
+    private OperationHandler purchaseOperation;
 
     @BeforeEach
     void setUp() {
+        purchaseOperation = new PurchaseOperation();
         Storage.putFruit("banana", 50);
     }
 
